@@ -493,5 +493,49 @@
     "commit" : "3fcbaea87f5cb16de65dc27ac00c8007499efe9e",
     "line" : 14,
     "diffHunk" : "@@ -1,1 +113,117 @@      os: Mac-10.15\n      device_os: iOS-14.4.2\n      xcode: 12c33\n  mac_ios32:\n    properties:"
+  },
+  {
+    "id" : "5d4b6c2b-2a19-42cb-9c9d-0b6597230b66",
+    "prId" : 88133,
+    "prUrl" : "https://github.com/flutter/flutter/pull/88133#pullrequestreview-729218887",
+    "prSource" : "GitHub",
+    "comments" : [
+      {
+        "id" : "75ea02d0-62f8-47bd-b0b9-d05f11390261",
+        "parentId" : null,
+        "authorId" : "378cd750-9b28-4c31-a51c-131a54c415f7",
+        "body" : "You'll also need to override the cache.\r\n\r\n```yaml\r\ncaches: >-\r\n  [\r\n          {\"name\":\"openjdk\",\"path\":\"java11\"},\r\n  ]\r\n```",
+        "createdAt" : "2021-08-12T23:16:34Z",
+        "updatedAt" : "2021-08-12T23:16:39Z",
+        "lastEditedBy" : "378cd750-9b28-4c31-a51c-131a54c415f7",
+        "tags" : [
+        ]
+      },
+      {
+        "id" : "89f857b7-d0e1-4aea-a056-b8208a172440",
+        "parentId" : "75ea02d0-62f8-47bd-b0b9-d05f11390261",
+        "authorId" : "26bed5e6-ee43-49f6-93fd-a565b3ee8889",
+        "body" : "does it make sense to cover this in the docs too ? https://github.com/CaseyHillers/cocoon/blob/1f1fa81e2588904908d613111a9d72e784cc6e24/CI_YAML.md#upgrading-dependencies",
+        "createdAt" : "2021-08-13T01:17:39Z",
+        "updatedAt" : "2021-08-13T01:17:39Z",
+        "lastEditedBy" : "26bed5e6-ee43-49f6-93fd-a565b3ee8889",
+        "tags" : [
+        ]
+      },
+      {
+        "id" : "d4d5dba4-962d-4788-9235-460d62c9fee9",
+        "parentId" : "75ea02d0-62f8-47bd-b0b9-d05f11390261",
+        "authorId" : "378cd750-9b28-4c31-a51c-131a54c415f7",
+        "body" : "Yes, i'll send a PR",
+        "createdAt" : "2021-08-13T02:41:50Z",
+        "updatedAt" : "2021-08-13T02:41:50Z",
+        "lastEditedBy" : "378cd750-9b28-4c31-a51c-131a54c415f7",
+        "tags" : [
+        ]
+      }
+    ],
+    "commit" : "9927aee9b921fdecc1a669280a8c628aced09c41",
+    "line" : 12,
+    "diffHunk" : "@@ -1,1 +1275,1279 @@      dependencies: >-\n        [\n          {\"dependency\": \"open_jdk\", \"version\": \"11\"}\n        ]\n      caches: >-"
   }
 ]
