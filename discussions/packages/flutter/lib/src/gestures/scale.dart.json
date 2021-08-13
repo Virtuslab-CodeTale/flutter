@@ -460,5 +460,49 @@
     "commit" : "556c09e681f54096bf58a5b0bab683f694354267",
     "line" : 26,
     "diffHunk" : "@@ -1,1 +517,521 @@          rotation: _computeRotationFactor(),\n          pointerCount: _pointerQueue.length,\n          delta: _currentFocalPoint - _initialFocalPoint,\n        ));\n      });"
+  },
+  {
+    "id" : "a7564358-2218-45b3-ac53-137a4480bb92",
+    "prId" : 85718,
+    "prUrl" : "https://github.com/flutter/flutter/pull/85718#pullrequestreview-697711638",
+    "prSource" : "GitHub",
+    "comments" : [
+      {
+        "id" : "4d5e69c8-7fc4-499c-80c4-02a750b67671",
+        "parentId" : null,
+        "authorId" : "a28d4bf0-9b21-4633-a08e-c383b294a037",
+        "body" : "Do we need an instance variable? In `_update` we always need to recompute the value so maybe we can use a local variable instead?",
+        "createdAt" : "2021-07-01T19:02:09Z",
+        "updatedAt" : "2021-07-01T19:11:54Z",
+        "lastEditedBy" : "a28d4bf0-9b21-4633-a08e-c383b294a037",
+        "tags" : [
+        ]
+      },
+      {
+        "id" : "6356b84a-33f6-40c7-96a0-75fcee87f469",
+        "parentId" : "4d5e69c8-7fc4-499c-80c4-02a750b67671",
+        "authorId" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "body" : "Can you take another look at this?  Sorry, I was in the middle of changing the PR, I should have used a WIP label.  As it is now, I need the previousFocalPoint to calculate delta (since now it's just the delta since the last call, not since the start).  So I think I either need `_delta` or `_previousFocalPoint` as an instance variable.",
+        "createdAt" : "2021-07-01T21:01:50Z",
+        "updatedAt" : "2021-07-01T21:01:50Z",
+        "lastEditedBy" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "tags" : [
+        ]
+      },
+      {
+        "id" : "2846f2ce-d66d-4ad4-babe-56bec620af30",
+        "parentId" : "4d5e69c8-7fc4-499c-80c4-02a750b67671",
+        "authorId" : "a28d4bf0-9b21-4633-a08e-c383b294a037",
+        "body" : "Ah sorry I thought `ScaleUpdateDetails` was constructed in `_update` nvm.",
+        "createdAt" : "2021-07-01T23:01:40Z",
+        "updatedAt" : "2021-07-01T23:01:40Z",
+        "lastEditedBy" : "a28d4bf0-9b21-4633-a08e-c383b294a037",
+        "tags" : [
+        ]
+      }
+    ],
+    "commit" : "45a7372d453b6fef96183a8b65872beefa025e4b",
+    "line" : 54,
+    "diffHunk" : "@@ -1,1 +333,337 @@  late List<int> _pointerQueue; // A queue to sort pointers in order of entrance\n  final Map<int, VelocityTracker> _velocityTrackers = <int, VelocityTracker>{};\n  late Offset _delta;\n\n  double get _scaleFactor => _initialSpan > 0.0 ? _currentSpan / _initialSpan : 1.0;"
   }
 ]
