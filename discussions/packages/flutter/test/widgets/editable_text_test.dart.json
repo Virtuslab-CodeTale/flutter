@@ -1582,5 +1582,104 @@
     "commit" : "f6a0c44bbccea72c40c3463965ce12c61793aa43",
     "line" : 51,
     "diffHunk" : "@@ -1,1 +3947,3951 @@    assert(focusNode.hasFocus);\n    // Autofocus has a one frame delay.\n    await tester.pump();\n\n    final RenderEditable renderEditable = findRenderEditable(tester);"
+  },
+  {
+    "id" : "4c000c47-f41e-4197-b72e-f14cfcbac0c6",
+    "prId" : 87971,
+    "prUrl" : "https://github.com/flutter/flutter/pull/87971#pullrequestreview-729190908",
+    "prSource" : "GitHub",
+    "comments" : [
+      {
+        "id" : "7ecefd45-da6a-4bcb-95f8-bd971200b426",
+        "parentId" : null,
+        "authorId" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "body" : "Can you remove this line now that you have the teardown?",
+        "createdAt" : "2021-08-12T03:31:38Z",
+        "updatedAt" : "2021-08-12T04:21:44Z",
+        "lastEditedBy" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "tags" : [
+        ]
+      },
+      {
+        "id" : "376fda00-cd8a-4a17-9760-3bf6d712618f",
+        "parentId" : "7ecefd45-da6a-4bcb-95f8-bd971200b426",
+        "authorId" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "body" : "Same with the next test below.",
+        "createdAt" : "2021-08-12T03:31:50Z",
+        "updatedAt" : "2021-08-12T04:21:44Z",
+        "lastEditedBy" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "tags" : [
+        ]
+      },
+      {
+        "id" : "2e24c1ae-f711-4fcc-a71f-152f19e090d8",
+        "parentId" : "7ecefd45-da6a-4bcb-95f8-bd971200b426",
+        "authorId" : "a28d4bf0-9b21-4633-a08e-c383b294a037",
+        "body" : "This doesn't seem to work, `_verifyInvariants` is called before the the tear down callbacks are invoked. ",
+        "createdAt" : "2021-08-12T06:59:38Z",
+        "updatedAt" : "2021-08-12T06:59:38Z",
+        "lastEditedBy" : "a28d4bf0-9b21-4633-a08e-c383b294a037",
+        "tags" : [
+        ]
+      },
+      {
+        "id" : "a58e8be2-79a3-4390-af7a-f9fcceb8f72b",
+        "parentId" : "7ecefd45-da6a-4bcb-95f8-bd971200b426",
+        "authorId" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "body" : "Ah ok interesting, best to keep both then 👍 ",
+        "createdAt" : "2021-08-13T01:17:02Z",
+        "updatedAt" : "2021-08-13T01:17:03Z",
+        "lastEditedBy" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "tags" : [
+        ]
+      }
+    ],
+    "commit" : "f674e173cb40c4adbb950d63ff7248e608e3fa82",
+    "line" : 8,
+    "diffHunk" : "@@ -1,1 +4944,4948 @@\n    await testTextEditing(tester, targetPlatform: defaultTargetPlatform);\n    debugKeyEventSimulatorTransitModeOverride = null;\n    // On web, using keyboard for selection is handled by the browser.\n  }, skip: kIsWeb, variant: TargetPlatformVariant.all());"
+  },
+  {
+    "id" : "07fba8a8-2e7c-4857-8a26-a16dbd4aed14",
+    "prId" : 87971,
+    "prUrl" : "https://github.com/flutter/flutter/pull/87971#pullrequestreview-728149945",
+    "prSource" : "GitHub",
+    "comments" : [
+      {
+        "id" : "ebd89015-d6f7-43e9-9ab5-41fa823036a7",
+        "parentId" : null,
+        "authorId" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "body" : "Slick 😎 ",
+        "createdAt" : "2021-08-12T03:32:54Z",
+        "updatedAt" : "2021-08-12T04:21:44Z",
+        "lastEditedBy" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "tags" : [
+        ]
+      }
+    ],
+    "commit" : "f674e173cb40c4adbb950d63ff7248e608e3fa82",
+    "line" : 47,
+    "diffHunk" : "@@ -1,1 +5817,5821 @@    ];\n\n    expect(\n      tester.testTextInput.log.map((MethodCall methodCall) => methodCall.method),\n      logOrder,"
+  },
+  {
+    "id" : "290b8db0-b8d0-4c2c-92ab-3a1b3ece5f20",
+    "prId" : 87971,
+    "prUrl" : "https://github.com/flutter/flutter/pull/87971#pullrequestreview-728149945",
+    "prSource" : "GitHub",
+    "comments" : [
+      {
+        "id" : "75778907-e0a3-448d-8b21-8be6816b08e6",
+        "parentId" : null,
+        "authorId" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "body" : "Nit: period here.",
+        "createdAt" : "2021-08-12T03:35:14Z",
+        "updatedAt" : "2021-08-12T04:21:44Z",
+        "lastEditedBy" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "tags" : [
+        ]
+      }
+    ],
+    "commit" : "f674e173cb40c4adbb950d63ff7248e608e3fa82",
+    "line" : 129,
+    "diffHunk" : "@@ -1,1 +7233,7237 @@      expect(cause, SelectionChangedCause.keyboard);\n\n      // Selection and cause both changed\n      await tester.enterText(find.byWidget(editableText), 'test text');\n      expect(selection, const TextSelection.collapsed(offset: 9));"
   }
 ]

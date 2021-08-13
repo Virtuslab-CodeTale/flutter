@@ -1384,5 +1384,27 @@
     "commit" : "b365ca4708f8a2c5e98ab3f7d2aef3cf9d558af2",
     "line" : 57,
     "diffHunk" : "@@ -1,1 +856,860 @@    }\n\n    final Rect? startHandleRect = widget.renderObject.getRectForComposingRange(TextRange(start: widget.selection.start, end: widget.selection.start + firstSelectedGraphemeExtent));\n    final Rect? endHandleRect = widget.renderObject.getRectForComposingRange(TextRange(start: widget.selection.end - lastSelectedGraphemeExtent, end: widget.selection.end));\n"
+  },
+  {
+    "id" : "42036b6e-46bb-43ac-a109-b0fc04678902",
+    "prId" : 87971,
+    "prUrl" : "https://github.com/flutter/flutter/pull/87971#pullrequestreview-728149945",
+    "prSource" : "GitHub",
+    "comments" : [
+      {
+        "id" : "300ac3cc-95f0-4d4a-9bcc-84010df65a8e",
+        "parentId" : null,
+        "authorId" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "body" : "Good catch",
+        "createdAt" : "2021-08-12T03:30:29Z",
+        "updatedAt" : "2021-08-12T04:21:43Z",
+        "lastEditedBy" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "tags" : [
+        ]
+      }
+    ],
+    "commit" : "f674e173cb40c4adbb950d63ff7248e608e3fa82",
+    "line" : 5,
+    "diffHunk" : "@@ -1,1 +1227,1231 @@  void onDoubleTapDown(TapDownDetails details) {\n    if (delegate.selectionEnabled) {\n      renderEditable.selectWord(cause: SelectionChangedCause.doubleTap);\n      if (shouldShowSelectionToolbar)\n        editableText.showToolbar();"
   }
 ]

@@ -86,5 +86,60 @@
     "commit" : "3712f941d4cc82f366b1c5f77e6894890797e89f",
     "line" : 14,
     "diffHunk" : "@@ -1,1 +35,39 @@/// should be the same; and where there is a widget with multiple children, the\n/// top child and the bottom child should be keyed using the provided\n/// `topChildKey` and `bottomChildKey` keys respectively.\n///\n/// ## Sample code"
+  },
+  {
+    "id" : "275b0200-25a3-47f6-b5a1-c2a098daa039",
+    "prId" : 87618,
+    "prUrl" : "https://github.com/flutter/flutter/pull/87618#pullrequestreview-729741266",
+    "prSource" : "GitHub",
+    "comments" : [
+      {
+        "id" : "142f295c-766a-4e22-9486-a716dd144638",
+        "parentId" : null,
+        "authorId" : "fd82dff4-bfc7-4076-8507-e7e4521446f2",
+        "body" : "This is still not needed: the `ExcludeFocus` is a no-op when `excluding` is false.",
+        "createdAt" : "2021-08-13T14:12:51Z",
+        "updatedAt" : "2021-08-13T14:13:13Z",
+        "lastEditedBy" : "fd82dff4-bfc7-4076-8507-e7e4521446f2",
+        "tags" : [
+        ]
+      },
+      {
+        "id" : "3515b27e-8f43-429e-8a40-1e3c9f3d4e1b",
+        "parentId" : "142f295c-766a-4e22-9486-a716dd144638",
+        "authorId" : "e31be2e5-57bb-4007-83ec-23f45f8e4061",
+        "body" : "I get an error in testing when I remove ExcludeFocus, but I don't know why. Can you please help me?\r\n<details>\r\n<summary>error</summary>\r\n\r\n00:04 +5 -1: AnimatedCrossFade preserves widget state [E]                                          \r\n  Test failed. See exception logs above.\r\n  The test description was: AnimatedCrossFade preserves widget state\r\n  \r\n00:04 +5 -1: AnimatedCrossFade switches off TickerMode and semantics on faded out widget           \r\n══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════\r\nThe following TestFailure object was thrown running a test:\r\n  Expected: <true>\r\n  Actual: <false>\r\n\r\nWhen the exception was thrown, this was the stack:\r\n#4      main.<anonymous closure> (file:///Users/zuvola/Documents/Projects/etc/flutter/packages/flutter/test/widgets/animated_cross_fade_test.dart:317:5)\r\n\r\n</details>",
+        "createdAt" : "2021-08-13T14:44:35Z",
+        "updatedAt" : "2021-08-13T14:44:36Z",
+        "lastEditedBy" : "e31be2e5-57bb-4007-83ec-23f45f8e4061",
+        "tags" : [
+        ]
+      },
+      {
+        "id" : "9d5c2c3f-bf0e-43aa-8ea5-579da3d59d6c",
+        "parentId" : "142f295c-766a-4e22-9486-a716dd144638",
+        "authorId" : "fd82dff4-bfc7-4076-8507-e7e4521446f2",
+        "body" : "Ahh, I see. I'm wrong: you actually do need the `ExcludeFocus` with `excluding` set to false here, because otherwise the change in the widget hierarchy causes the children's state to be rebuilt, which is undesirable. It's true that it is a no-op when it comes to focus state, but not with respect to the widget tree topology.",
+        "createdAt" : "2021-08-13T15:01:54Z",
+        "updatedAt" : "2021-08-13T15:01:55Z",
+        "lastEditedBy" : "fd82dff4-bfc7-4076-8507-e7e4521446f2",
+        "tags" : [
+        ]
+      },
+      {
+        "id" : "eb020968-9e5f-42d3-be33-670ff7650518",
+        "parentId" : "142f295c-766a-4e22-9486-a716dd144638",
+        "authorId" : "e31be2e5-57bb-4007-83ec-23f45f8e4061",
+        "body" : "OK, I understand. Thank you for the detailed explanation.",
+        "createdAt" : "2021-08-13T15:35:09Z",
+        "updatedAt" : "2021-08-13T15:35:09Z",
+        "lastEditedBy" : "e31be2e5-57bb-4007-83ec-23f45f8e4061",
+        "tags" : [
+        ]
+      }
+    ],
+    "commit" : "512654dd7799e502e4bd1ad8f322491c591c068f",
+    "line" : 30,
+    "diffHunk" : "@@ -1,1 +358,362 @@      child: ExcludeSemantics(\n        excluding: false, // Always publish semantics for the widget that's fading in.\n        child: ExcludeFocus(\n          excluding: false,\n          child: FadeTransition("
   }
 ]

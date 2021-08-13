@@ -3430,5 +3430,115 @@
     "commit" : "cf2da9999122c1386b8ecb7052b46347b84db884",
     "line" : 11,
     "diffHunk" : "@@ -1,1 +2278,2282 @@      });\n      if (_lastBottomViewInset < WidgetsBinding.instance!.window.viewInsets.bottom) {\n        _scheduleShowCaretOnScreen();\n      }\n    }"
+  },
+  {
+    "id" : "8cd6f988-ab5d-4d2e-8733-461f56ba5970",
+    "prId" : 87971,
+    "prUrl" : "https://github.com/flutter/flutter/pull/87971#pullrequestreview-728218022",
+    "prSource" : "GitHub",
+    "comments" : [
+      {
+        "id" : "005f6384-a203-4648-bf25-bde5ddfc21ee",
+        "parentId" : null,
+        "authorId" : "d684363a-4114-408d-bf33-c427c7290197",
+        "body" : "I didnt get the logic, the _scheduleShowCaretOnScreen will be called in line 1770 anyway?",
+        "createdAt" : "2021-08-11T20:20:05Z",
+        "updatedAt" : "2021-08-11T20:29:40Z",
+        "lastEditedBy" : "d684363a-4114-408d-bf33-c427c7290197",
+        "tags" : [
+        ]
+      },
+      {
+        "id" : "c2b83a53-286c-41dc-aab2-bccd05955723",
+        "parentId" : "005f6384-a203-4648-bf25-bde5ddfc21ee",
+        "authorId" : "a28d4bf0-9b21-4633-a08e-c383b294a037",
+        "body" : "Ah I forgot to remove the existing `_sheduleShowCaretOnScreen` when copied the other one over.",
+        "createdAt" : "2021-08-12T06:20:55Z",
+        "updatedAt" : "2021-08-12T06:20:55Z",
+        "lastEditedBy" : "a28d4bf0-9b21-4633-a08e-c383b294a037",
+        "tags" : [
+        ]
+      }
+    ],
+    "commit" : "f674e173cb40c4adbb950d63ff7248e608e3fa82",
+    "line" : 52,
+    "diffHunk" : "@@ -1,1 +1763,1767 @@      : _value != value;\n    if (shouldShowCaret) {\n      _scheduleShowCaretOnScreen();\n    }\n"
+  },
+  {
+    "id" : "128fc85e-d21c-422a-bbca-70767247f30a",
+    "prId" : 87971,
+    "prUrl" : "https://github.com/flutter/flutter/pull/87971#pullrequestreview-728879660",
+    "prSource" : "GitHub",
+    "comments" : [
+      {
+        "id" : "43769893-7483-436f-b49b-4f983e88a879",
+        "parentId" : null,
+        "authorId" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "body" : "The new code preserves the TextAffinity of _lastTextPosition, but the old code didn't.  Probably better this way but something to be aware of.",
+        "createdAt" : "2021-08-12T03:42:46Z",
+        "updatedAt" : "2021-08-12T04:21:44Z",
+        "lastEditedBy" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "tags" : [
+        ]
+      },
+      {
+        "id" : "c9b3fc51-eb59-426f-b38b-9d121c2377a1",
+        "parentId" : "43769893-7483-436f-b49b-4f983e88a879",
+        "authorId" : "a28d4bf0-9b21-4633-a08e-c383b294a037",
+        "body" : "The floating cursor stuff currently doesn't care much about affinity (e.g., `final TextPosition currentTextPosition = TextPosition(offset: renderEditable.selection!.baseOffset);`). I'm hoping we can take cursor handling out of `EditableTextState` and maybe clean floating cursor a bit in the process.\r\n",
+        "createdAt" : "2021-08-12T17:14:26Z",
+        "updatedAt" : "2021-08-12T17:14:26Z",
+        "lastEditedBy" : "a28d4bf0-9b21-4633-a08e-c383b294a037",
+        "tags" : [
+        ]
+      }
+    ],
+    "commit" : "f674e173cb40c4adbb950d63ff7248e608e3fa82",
+    "line" : 104,
+    "diffHunk" : "@@ -1,1 +1888,1892 @@        final TextEditingValue newValue = _value.copyWith(\n          selection: TextSelection.fromPosition(_lastTextPosition!),\n        );\n        _updateEditingValueForUserInteraction(newValue, SelectionChangedCause.forcePress);\n      }"
+  },
+  {
+    "id" : "22d772a8-899c-4d3d-a5b1-86e391b8944f",
+    "prId" : 87971,
+    "prUrl" : "https://github.com/flutter/flutter/pull/87971#pullrequestreview-728149945",
+    "prSource" : "GitHub",
+    "comments" : [
+      {
+        "id" : "8917485c-4d50-4b05-bbb6-01901a08d03c",
+        "parentId" : null,
+        "authorId" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "body" : "Thank you for adding the comment here!",
+        "createdAt" : "2021-08-12T03:58:24Z",
+        "updatedAt" : "2021-08-12T04:21:44Z",
+        "lastEditedBy" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "tags" : [
+        ]
+      }
+    ],
+    "commit" : "f674e173cb40c4adbb950d63ff7248e608e3fa82",
+    "line" : 322,
+    "diffHunk" : "@@ -1,1 +2535,2539 @@  // This method is similar to updateEditingValue, but is used to handle user\n  // input caused by hardware keyboard events and gesture events, while\n  // updateEditingValue handles IME/software keyboard input.\n  @override\n  void userUpdateTextEditingValue(TextEditingValue value, SelectionChangedCause cause) {"
+  },
+  {
+    "id" : "149f1d36-ff43-4684-95a5-ff40e48efbf6",
+    "prId" : 87971,
+    "prUrl" : "https://github.com/flutter/flutter/pull/87971#pullrequestreview-728149945",
+    "prSource" : "GitHub",
+    "comments" : [
+      {
+        "id" : "12913308-f7c1-4125-a443-6d4fe153f430",
+        "parentId" : null,
+        "authorId" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "body" : "I got really worried about extended grapheme clusters and obscured fields when I saw this `+ 1` here (even though I know it has nothing to do with this PR).  Indeed they show up as multiple characters when entered into an obscured field and don't have a delay, but it turns out that's the behavior on native too 🤷 .  All is well.",
+        "createdAt" : "2021-08-12T04:18:07Z",
+        "updatedAt" : "2021-08-12T04:21:44Z",
+        "lastEditedBy" : "0474385d-5aae-4093-b7fc-7f38665f8960",
+        "tags" : [
+        ]
+      }
+    ],
+    "commit" : "f674e173cb40c4adbb950d63ff7248e608e3fa82",
+    "line" : 345,
+    "diffHunk" : "@@ -1,1 +2557,2561 @@\n      if (_hasInputConnection) {\n        if (widget.obscureText && value.text.length == _value.text.length + 1) {\n          _obscureShowCharTicksPending = _kObscureShowLatestCharCursorTicks;\n          _obscureLatestCharIndex = _value.selection.baseOffset;"
   }
 ]

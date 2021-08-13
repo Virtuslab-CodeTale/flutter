@@ -2610,6 +2610,21 @@
     "updatedAt" : "2021-08-11T23:21:58.067438Z"
   },
   {
+    "id" : "e31be2e5-57bb-4007-83ec-23f45f8e4061",
+    "remoteIds" : [
+      {
+        "id" : "zuvola",
+        "url" : "github.com",
+        "provider" : "GitHub"
+      }
+    ],
+    "name" : "zuvola",
+    "avatarUrl" : "https://avatars.githubusercontent.com/u/1144427?u=f254614647ef8614893802e452c627b4aa8fa5b7&v=4",
+    "altName" : "zuvola",
+    "email" : null,
+    "updatedAt" : "2021-08-13T18:39:34.385698Z"
+  },
+  {
     "id" : "e3f6ed8a-6caa-464a-905d-69f428242a4e",
     "remoteIds" : [
       {
